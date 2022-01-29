@@ -15,6 +15,22 @@ const routes = [
 		name: 'About',
 		component: () => import('./views/About.vue')
 	},
+	{
+		path: '/programming',
+		name: 'Programming',
+	},
+	{
+		path: '/literature',
+		name: 'Literature',
+	},
+	{
+		path: '/chat',
+		name: 'Chat',
+	},
+	{
+		path: '/login',
+		name: 'Login',
+	},
 ]
 
 const router = new VueRouter({

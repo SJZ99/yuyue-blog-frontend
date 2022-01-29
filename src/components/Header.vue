@@ -7,7 +7,7 @@
         >
             <v-img
                 max-width="9rem"
-                src="../assets/icon.png"
+                src="../assets/logo/icon.png"
             >
             </v-img>
 
@@ -38,5 +38,5 @@ export default {
 </script>
 
 <style lang="scss" scope>
-@import "../assets/scss/header.scss";
+@import '../assets/scss/components/header.scss';
 </style>
