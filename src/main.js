@@ -1,10 +1,10 @@
 import Vue from 'vue'
-import './axios'
+import './js/axios'
 import App from './App.vue'
-import vuetify from './vuetify'
-import router from './router'
+import vuetify from './js/vuetify'
+import router from './js/router'
 import VueRamda from 'vue-ramda'
-import store from './store'
+import vuex from './js/vuex'
 
 Vue.config.productionTip = false
 Vue.use(VueRamda)
@@ -12,7 +12,7 @@ Vue.use(VueRamda)
 var vm = new Vue({
   vuetify,
   router,
-  store,
+  vuex,
   render: h => h(App),
   mounted: () => document.dispatchEvent(new Event("x-app-rendered"))
 })
