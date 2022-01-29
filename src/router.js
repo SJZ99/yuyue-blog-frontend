@@ -7,6 +7,7 @@ Vue.use(VueRouter)
 const routes = [
 	{
 		path: '/',
+		alias: '/home',
 		name: 'Home',
 		component: Home
 	},
@@ -16,8 +17,8 @@ const routes = [
 		component: () => import('./views/About.vue')
 	},
 	{
-		path: '/programming',
-		name: 'Programming',
+		path: '/program',
+		name: 'Program',
 	},
 	{
 		path: '/literature',

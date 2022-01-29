@@ -6,8 +6,9 @@
             src='../assets/cyberpunk/street-bar.jpg'
         >
             <v-img
-                max-width="9rem"
-                src="../assets/logo/icon.png"
+                id="logo"
+                max-width="7.5rem"
+                src="../assets/logo/icon2.png"
             >
             </v-img>
 
