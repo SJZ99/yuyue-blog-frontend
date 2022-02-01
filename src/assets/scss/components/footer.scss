@@ -1,4 +1,4 @@
-p {
+#footer-text {
     font-family: 'Dancing Script', 'serif', cursive;
     font-style: normal;
     font-weight: 400px;
@@ -9,5 +9,10 @@ p {
 }
 
 #btn {
-    width: 20% !important;
+    min-width: 20vw !important;
+}
+
+#navigation {
+    margin-bottom: 2px;
+    box-shadow: 0px 3px 20px 1px #000;
 }

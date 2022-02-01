@@ -12,17 +12,25 @@ const routes = [
 		component: Home
 	},
 	{
-		path: '/about',
-		name: 'About',
-		component: () => import('../views/About.vue')
-	},
-	{
 		path: '/program',
 		name: 'Program',
+		component: () => import('../views/Menu-Program.vue')
+	},
+	{
+		path: '/program/:lang',
+		name: 'Program',
+		component: () => import('../views/ArticleList-Program.vue')
+	},
+	{
+		path: '/program/:lang/:id',
+		name: 'Program',
+		component: () => import('../views/Article.vue')
+		
 	},
 	{
 		path: '/literature',
 		name: 'Literature',
+		component: () => import('../views/Menu-Literature.vue')
 	},
 	{
 		path: '/chat',
@@ -35,7 +43,10 @@ const routes = [
 ]
 
 const router = new VueRouter({
-	routes
+	routes,
+	scrollBehavior () {
+		return {x: 0, y: 0}
+	}
 })
 
 export default router

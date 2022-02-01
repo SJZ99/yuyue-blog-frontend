@@ -1,10 +1,12 @@
 <template>
     <div id="footer">
         <v-bottom-navigation
+            id="navigation"
             v-model="select"
             :background-color="color"
             shift
             dark
+            fixed
         >
 
             <v-btn 
@@ -14,8 +16,8 @@
                 icon
                 id="btn"
             >
-                <p>{{ button }}</p>
-                <v-icon>{{ icons[index] }}</v-icon>
+                <p id="footer-text">{{ button }}</p>
+                <v-icon size="25px">{{ icons[index] }}</v-icon>
             </v-btn>
             
 
@@ -42,16 +44,6 @@ export default {
                 default: return '#2C2761'
             }
         }
-    },
-    methods: {
-        changePath(goToPath) {
-
-            this.$router.push(goToPath).catch((error) => {
-                if (error.name != "NavigationDuplicated") {
-                    throw error;
-                }
-            });
-        },
     },
 }
 </script>
