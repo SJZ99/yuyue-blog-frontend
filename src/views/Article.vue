@@ -26,6 +26,8 @@ export default {
         Title
     },
     data: () => ({
+        type: router.currentRoute.name.toLowerCase(),
+        id: router.currentRoute.params.id,
         article: {
             id: router.currentRoute.params.id,
             title: '【Spring】titletle',
@@ -34,12 +36,24 @@ export default {
             date: '2022/1/31',
             img: require('../assets/cyberpunk/city.jpg')
         }
-    })
+    }),
+    methods: {
+        fetchArticle () {
+            this.axios.get(`/${this.type}/articles/${this.id}`)
+                    .then(response => {
+                        this.article = response.data
+                        this.article.img = `${this.axios.defaults.baseURL}/${this.type}/img/${this.article.img}`
+                    })
+        },
+    },
+    created () {
+        this.fetchArticle()
+    }
 }
 </script>
 
 <style lang="scss" scope>
-@import '../assets/scss/components/box.scss';
+@import '../assets/scss/components/common.scss';
 
 #img {
     margin: 0 auto;

@@ -1,6 +1,7 @@
 <template>
     <div>
         <div id="box">
+            <h2 id="custom-title">Articles</h2>
             <v-card
                 v-for="(article, index) in articles"
                 :key="index"
@@ -34,27 +35,33 @@ export default {
                 preface: "canvalkjvnnlsajdnvalsjdnvaljdskva;vas",
                 date: "2022/1/31"
             },
-            {
-                id: 2,
-                img: require('../assets/cyberpunk/city.jpg'),
-                title: "【tag】titletle",
-                preface: "canvalkjvnnlsajdnvalsjdnvaljdskva;vas",
-                date: "2022/1/31"
-            },
-            {
-                id: 3,
-                img: require('../assets/cyberpunk/city.jpg'),
-                title: "【tag】titletle",
-                preface: "canvalkjvnnlsajdnvalsjdnvaljdskva;vas",
-                date: "2022/1/31"
-            },
         ],
-    })
+    }),
+
+    methods: {
+        fetchPreviews () {
+            this.axios.get(`/program/previews/${this.language}`)
+                        .then(response => {
+                            this.articles = response.data
+                            this.articles.forEach(article => {
+                                console.log(article)
+                                article.img = `${this.axios.defaults.baseURL}/program/img/${article.img}`
+                            })
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        })
+        },
+    },
+
+    created () {
+        this.fetchPreviews();
+    },
 }
 </script>
 
 <style lang='scss' scope>
-@import '../assets/scss/components/box.scss';
+@import '../assets/scss/components/common.scss';
 #preview {
     width: 100%;
     margin: 0 auto;

@@ -10,6 +10,7 @@ import VueAxios from 'vue-axios'
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 let config = {
+  baseURL: 'http://localhost:8081/yuyue-api'
   // baseURL: process.env.baseURL || process.env.apiUrl || ""
   // timeout: 60 * 1000, // Timeout
   // withCredentials: true, // Check cross-site Access-Control
@@ -40,6 +41,6 @@ _axios.interceptors.response.use(
   }
 );
 
-Vue.use(VueAxios, axios)
+Vue.use(VueAxios, _axios)
 
-export default axios;
+export default _axios;

@@ -1,5 +1,8 @@
 <template>
-    <div id="horizon-card">
+    <div
+        id="horizon-card"
+        @click="$emit('click')"
+    >
         <v-img 
             :src="img"
             id="horizon-card-img"
@@ -9,14 +12,13 @@
             <h3 id="horizon-card-title">{{ title }}</h3>
             <h6 id="horizon-card-amount">共 {{ amount }} 篇</h6>
         </div>
-        
     </div>
 </template>
 
 <script>
 export default {
     props: {
-        img: Object,
+        img: String,
         title: String,
         amount: Number,
     }

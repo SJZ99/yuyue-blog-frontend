@@ -26,9 +26,10 @@
 </template>
 
 <script>
+import vuex from '../js/vuex'
 export default {
     data: ()=> ({
-        select: 2,
+        select: vuex.state.footerIndex,
         buttons: ['Literature', 'Program', 'Home', 'Chat', 'Login'],
         icons:['mdi-lead-pencil', 'mdi-code-json', 'mdi-home', 'mdi-forum', 'mdi-login'],
     }),
@@ -44,6 +45,11 @@ export default {
                 default: return '#2C2761'
             }
         }
+    },
+    watch: {
+        select: function(val) {
+            vuex.commit("SET_FOOTER_INDEX", { footerIndex: val })
+        },
     },
 }
 </script>

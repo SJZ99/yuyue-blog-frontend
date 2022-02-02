@@ -33,6 +33,17 @@ const routes = [
 		component: () => import('../views/Menu-Literature.vue')
 	},
 	{
+		path: '/literature/:seriesId',
+		name: 'Literature',
+		component: () => import('../views/ArticleList-Literature.vue')
+	},
+	{
+		path: '/literature/:seriesId/:id',
+		name: 'Literature',
+		component: () => import('../views/Article.vue')
+		
+	},
+	{
 		path: '/chat',
 		name: 'Chat',
 	},

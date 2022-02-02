@@ -5,20 +5,27 @@ import VuexPersistence from 'vuex-persist'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  },
-  plugins: [
-    new VuexPersistence({
-      // reducer: state => ({
-      //   token: state.token,
-      //   content: state.content,
-      // })
-    }).plugin
-  ] 
+    state: {
+        footerIndex: 2,
+    },
+
+    mutations: {
+        SET_FOOTER_INDEX(state, options) {
+            state.footerIndex = options.footerIndex;
+        }
+    },
+
+    actions: {
+    },
+
+    modules: {
+    },
+
+    plugins: [
+        new VuexPersistence({
+            // reducer: state => ({
+            //     footerIndex: state.footerIndex,
+            // })
+        }).plugin
+    ] 
 })
