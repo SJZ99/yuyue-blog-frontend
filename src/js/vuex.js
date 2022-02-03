@@ -1,8 +1,25 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexPersistence from 'vuex-persist'
-
+import Cookies from 'js-cookie'
+import * as LoginInfo from './module/LoginInfo'
 Vue.use(Vuex)
+
+let vuexCookies = new VuexPersistence({
+    restoreState: (key) => Cookies.get(key),
+    saveState: (key, state) =>
+      Cookies.set(key, state, {
+        expires: 1/48 //30 minutes
+    }),
+    modules: ["loginInfo"]
+})
+
+let vuexLocal = new VuexPersistence({
+    storage: window.localStorage,
+    // reducer: state => ({
+
+    // }),
+})
 
 export default new Vuex.Store({
     state: {
@@ -12,6 +29,9 @@ export default new Vuex.Store({
     mutations: {
         SET_FOOTER_INDEX(state, options) {
             state.footerIndex = options.footerIndex;
+        },
+        SET_LOGIN_INFO(state, loginInfo) {
+            state.loginInfo = loginInfo;
         }
     },
 
@@ -19,13 +39,10 @@ export default new Vuex.Store({
     },
 
     modules: {
+        loginInfo: LoginInfo
     },
 
     plugins: [
-        new VuexPersistence({
-            // reducer: state => ({
-            //     footerIndex: state.footerIndex,
-            // })
-        }).plugin
+        vuexLocal.plugin, vuexCookies.plugin
     ] 
 })
