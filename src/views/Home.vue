@@ -1,14 +1,12 @@
 <template>
 	<div class="home">
-		{{ $router.currentRoute.name}}
+		{{ $router.currentRoute.name }}
 	</div>
 </template>
 
 <script>
-// @ is an alias to /src
+import vuex from '../js/vuex'
 export default {
-	name: 'Home',
-	components: {
-	},
+  name: 'Home',
 }
 </script>

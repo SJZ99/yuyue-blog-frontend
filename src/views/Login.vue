@@ -1,27 +1,20 @@
 <template>
     <div>
-        <!-- <v-btn
+        <v-btn
             @click="login()"
-        ></v-btn> -->
+        ></v-btn>
         <a href="https://localhost:8081/yuyue-api/manage/login">
-            Login with google
+            backend
         </a>
     </div>
 </template>
 
 <script>
-import vuex from '../js/vuex'
+import { keycloak, initFunction } from '../js/module/KeycloakTool'
 export default {
     methods: {
         login() {
-            let loginInfo = {}
-            this.axios.get("/manage/login")
-                    .then(response => {
-                        loginInfo.name = response.data.name
-                        loginInfo.email = response.data.email
-                        vuex.commit("SET_LOGIN_INFO", loginInfo)
-                        console.log(loginInfo)
-                    })
+            keycloak.login()
         }
     },
 }

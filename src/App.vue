@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<v-app>
-			<Header :title="$router.currentRoute.name" />
+			<Header :title="$router.currentRoute.meta.routerName" />
 
 			<router-view class="content"></router-view>
 			
