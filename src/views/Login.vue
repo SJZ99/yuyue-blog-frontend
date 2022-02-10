@@ -1,16 +1,18 @@
 <template>
-    <div>
+    <div id="wrapper">
         <v-btn
+            light
+            id="login-button"
             @click="login()"
-        ></v-btn>
-        <a href="https://localhost:8081/yuyue-api/manage/login">
-            backend
-        </a>
+        >
+            <h3>Login</h3>
+        </v-btn>
+        
     </div>
 </template>
 
 <script>
-import { keycloak, initFunction } from '../js/module/KeycloakTool'
+import { keycloak } from '../js/KeycloakTool'
 export default {
     methods: {
         login() {
@@ -21,5 +23,15 @@ export default {
 </script>
 
 <style>
+#wrapper {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+}
 
+#login-button {
+    margin: 0 auto;
+    margin-top: 35vh;
+}
 </style>

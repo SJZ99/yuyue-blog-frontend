@@ -53,19 +53,19 @@ export default {
 
     methods: {
         fetchLanguage() {
-            this.axios.get("/program/languages")
-                        .then(response => {
-                            this.languages = response.data
-                        })
-                        .catch(error => {
-                            console.log(error)
-                        })
+            this.axios
+                    .get("/program/languages")
+                    .then(response => {
+                        this.languages = response.data
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
         }
     },
 
     created () {
         this.fetchLanguage()
-        console.log(this.languages)
     },
 }
 </script>

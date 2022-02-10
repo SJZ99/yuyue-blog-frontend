@@ -38,13 +38,13 @@ export default {
     }),
     methods: {
         fetchSeries() {
-            this.axios.get("/literature/series")
+            this.axios
+                    .get("/literature/series")
                     .then(response => {
                         this.series = response.data
                         this.series.forEach(topic => {
                             topic.img = `${this.axios.defaults.baseURL}/literature/img/${topic.img}`
                         })
-                        console.log(this.series)
                     })
         }
     },

@@ -3,12 +3,7 @@
         <div id="box">
             <v-row id="bar-row">
                 <v-col>
-                    <v-btn
-                        text
-                        dark
-                    >
-                        new article
-                    </v-btn>
+                    <article-dialog></article-dialog>
                 </v-col>
                 
                 <v-col>
@@ -69,10 +64,12 @@
 </template>
 
 <script>
+import ArticleDialog from '../../components/ArticleDialog.vue';
 import Divider from '../../components/Divider.vue'
 export default {
     components: {
-        Divider
+        Divider,
+        ArticleDialog
     },
     data: () => ({
         type: "program",
@@ -129,8 +126,7 @@ export default {
                     .get(`/${this.type}/previews`)
                     .then(response => {
                         this.articles[this.type] = response.data
-                        inits[index] = true
-                        console.log(this.articles)
+                        this.inits[index] = true
                     })
                     .catch(error => {
                         console.log(error)

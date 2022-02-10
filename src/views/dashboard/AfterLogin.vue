@@ -19,14 +19,14 @@
             class="list-button"
             @click="changePaht('/write-article')"
         >
-            <h3>Writing Article</h3>
+            <h3>Article Editor</h3>
         </v-btn>
       </div>   
   </div>
 </template>
 
 <script>
-import { keycloak } from '../../js/module/KeycloakTool'
+import { keycloak } from '../../js/KeycloakTool'
 export default {
     data: () => ({
         
@@ -41,7 +41,8 @@ export default {
 
 <style>
 #container {
-    height: 100vh;
+    height: 100%;
+    width: 100%;
 }
 #button-group {
     align-content: flex-start; 

@@ -58,13 +58,13 @@ export default {
     }),
     methods: {
         fetchPreviews() {
-            this.axios.get(`/literature/previews/${this.seriesId}`)
+            this.axios
+                    .get(`/literature/previews/${this.seriesId}`)
                     .then(response => {
                         this.articles = response.data
                         this.articles.forEach(article => {
                             article.img = `${this.axios.defaults.baseURL}/literature/img/${article.img}`
                         })
-                        console.log(this.articles)
                     })
         }
     },

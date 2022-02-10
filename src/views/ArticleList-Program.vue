@@ -40,17 +40,17 @@ export default {
 
     methods: {
         fetchPreviews () {
-            this.axios.get(`/program/previews/${this.language}`)
-                        .then(response => {
-                            this.articles = response.data
-                            this.articles.forEach(article => {
-                                console.log(article)
-                                article.img = `${this.axios.defaults.baseURL}/program/img/${article.img}`
-                            })
+            this.axios
+                    .get(`/program/previews/${this.language}`)
+                    .then(response => {
+                        this.articles = response.data
+                        this.articles.forEach(article => {
+                            article.img = `${this.axios.defaults.baseURL}/program/img/${article.img}`
                         })
-                        .catch(error => {
-                            console.log(error)
-                        })
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
         },
     },
 

@@ -5,7 +5,7 @@
                 :title="article.title"
                 :date="article.date"
             ></Title>
-            <Preface :text="article.preface"></Preface>
+            <Preface>{{ this.article.preface }}</Preface>
             <v-img 
                 :src="article.img"
                 max-width="90vw"
@@ -26,7 +26,7 @@ export default {
         Title
     },
     data: () => ({
-        type: router.currentRoute.name.toLowerCase(),
+        type: router.currentRoute.meta.routerName.toLowerCase(),
         id: router.currentRoute.params.id,
         article: {
             id: router.currentRoute.params.id,

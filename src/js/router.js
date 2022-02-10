@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import { keycloak } from './module/KeycloakTool'
+import { keycloak } from './KeycloakTool'
 
 Vue.use(VueRouter)
 
@@ -101,10 +101,16 @@ const routes = [
 		meta: dashboardMeta,
 	},
 	{
-		path: '/write-article',
-		name: 'Article Editor',
-		// component: () => import('../views/dashborad/ArticleManagement.vue'),
-		// meta: dashboardMeta,
+		path: '/article-editor/:type/:id',
+		name: 'Article Editor (edit)',
+		component: () => import('../views/dashboard/ArticleEditor.vue'),
+		meta: dashboardMeta,
+	},
+	{
+		path: '/article-editor/create/:type/:subtype',
+		name: 'Article Editor (create)',
+		component: () => import('../views/dashboard/ArticleEditor.vue'),
+		meta: dashboardMeta,
 	}
 ]
 

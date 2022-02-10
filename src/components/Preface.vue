@@ -1,6 +1,8 @@
 <template>
   <div id="preface">
-      <h2 id="text">{{ text }}</h2>
+        <h2 id="text">
+            <slot>preface</slot>
+        </h2>
   </div>
 </template>
 
@@ -23,7 +25,7 @@ export default {
 }
 #text {
     color: #ebebeb;
-    margin-left: .8em;
-    margin-right: .8em;
+    margin-left: .5em;
+    margin-right: .5em;
 }
 </style>
